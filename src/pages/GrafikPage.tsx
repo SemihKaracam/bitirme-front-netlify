@@ -1,4 +1,3 @@
-import React from "react";
 import { Chart as ChartJS, defaults } from "chart.js/auto";
 import "../App.css";
 import { useNavigate } from "react-router-dom";
