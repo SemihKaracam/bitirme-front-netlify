@@ -132,6 +132,9 @@ function HomePage() {
 
   const handleDelete = async (imgPath: string) => {
     try {
+      const res = await axios.get(`${apiUrl}/deneme`);
+      console.log(res.data)
+
       await deleteObject(ref(storage, imgPath));
       setImageUrls(prev => prev.filter(img => img.metadata.fullPath !== imgPath));
       toast.success("Fotoğraf başarıyla silindi!");
