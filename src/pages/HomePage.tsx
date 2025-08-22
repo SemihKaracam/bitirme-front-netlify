@@ -11,7 +11,7 @@ import { storage } from "../firebase.ts";
 import { v4 } from "uuid";
 import { ClipLoader } from "react-spinners";
 import moment from "moment";
-import "moment/locale/tr";
+// import "moment/locale/tr";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FaCircleCheck } from "react-icons/fa6";
