@@ -132,9 +132,6 @@ function HomePage() {
 
   const handleDelete = async (imgPath: string) => {
     try {
-      const res = await axios.get(`${apiUrl}/deneme`);
-      console.log(res.data)
-
       await deleteObject(ref(storage, imgPath));
       setImageUrls(prev => prev.filter(img => img.metadata.fullPath !== imgPath));
       toast.success("Fotoğraf başarıyla silindi!");
@@ -144,11 +141,15 @@ function HomePage() {
   const handleNavigate = () => navigate("/grafik");
 
   return (
-    <div className="min-h-screen bg-white px-20">
+    <div className="min-h-screen bg-white px-12">
       {/* Üst alan */}
       <div className="flex items-center justify-between h-16 mt-4 gap-4">
         <div className="flex items-center gap-4">
-          <label htmlFor="file-upload" className="cursor-pointer rounded border border-blue-600 bg-white px-6 py-3 text-blue-600 hover:bg-blue-600 hover:text-white">
+          <label htmlFor="file-upload" className="cursor-pointer rounded border border-blue-600 bg-white 
+             px-4 py-2 text-sm
+             sm:px-6 sm:py-3 sm:text-base
+             md:px-8 md:py-3 md:text-lg
+             text-blue-600 hover:bg-blue-600 hover:text-white transition">
             📂 Fotoğraf Seç
           </label>
           <input
@@ -168,7 +169,10 @@ function HomePage() {
           {imageUpload && <p className="text-gray-700">Seçilen dosya: <span className="font-medium">{imageUpload.name}</span></p>}
 
           <button
-            className="relative rounded border flex justify-center border-blue-600 bg-blue-600 px-6 py-3 text-white transition duration-500 hover:bg-blue-400 disabled:cursor-not-allowed disabled:opacity-50"
+            className="px-4 py-2 text-sm
+             sm:px-6 sm:py-3 sm:text-base
+             md:px-8 md:py-3 md:text-lg 
+             relative rounded border flex justify-center border-blue-600 bg-blue-600 text-white transition duration-500 hover:bg-blue-400 disabled:cursor-not-allowed disabled:opacity-50"
             disabled={uploadProgress > 0 && uploadProgress < 100}
             onClick={uploadFile}
           >
@@ -179,7 +183,10 @@ function HomePage() {
 
         <button
           onClick={handleNavigate}
-          className="rounded border border-blue-600 bg-blue-600 px-6 py-3 text-white transition duration-500 hover:bg-white hover:text-blue-600"
+          className="px-4 py-2 text-sm
+             sm:px-6 sm:py-3 sm:text-base
+             md:px-8 md:py-3 md:text-lg
+            rounded border border-blue-600 bg-blue-600 text-white transition duration-500 hover:bg-white hover:text-blue-600"
         >
           Performans Çıktıları
         </button>
